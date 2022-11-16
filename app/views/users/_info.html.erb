@@ -1,0 +1,31 @@
+
+<h2>User info</h2>
+<%= image_tag user.get_profile_image(100,100) %>
+
+<table>
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "user-edit", edit_user_path(current_user.id) %>
+
+
+<h2>New</h2>
+<%= form_with model: @book1=Book.new, url: '/books', method: :post do |f| %>
+<!--@book1にしないと、@bookの値が初期化してしまいnill　classとなってしまう-->
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
+<%end%>
+
+

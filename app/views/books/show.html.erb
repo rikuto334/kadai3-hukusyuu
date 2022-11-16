@@ -1,0 +1,15 @@
+<%= render 'users/info', user: current_user %>
+<h2>Book detail</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <%= image_tag @book.user.get_profile_image(100,100) %> <br>
+        <%= link_to @book.user.name, user_path(@book.user.id) %>
+      </td>
+      <td><%= link_to @book.title, book_path(@book.id) %></td>
+      <td><%= @book.body %></td>
+    </tr>
+  </tbody>
+</table>
